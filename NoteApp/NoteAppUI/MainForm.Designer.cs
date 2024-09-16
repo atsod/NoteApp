@@ -1,6 +1,9 @@
-﻿namespace NoteAppUI
+﻿using NoteApp;
+using System.Security.AccessControl;
+
+namespace NoteAppUI
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,10 +31,28 @@
         /// </summary>
         private void InitializeComponent()
         {
+            TestObjectsInitialization(out string noteName);
+
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.Text = noteName; //"Form1";
+        }
+
+        private void TestObjectsInitialization(out string noteName)
+        {
+            Note note1 = new Note(NoteType.Work, name: "Заметка номер 1");
+            Note note2 = new Note(NoteType.Home);
+
+            Project project = new Project();
+            project.Notes.Add(note1);
+            project.Notes.Add(note2);
+
+            ProjectManager.SaveToFile(project, ProjectManager.FilePath);
+
+            Project project1 = ProjectManager.LoadFromFile(ProjectManager.FilePath);
+
+            noteName = project1.Notes[0].Name;
         }
 
         #endregion

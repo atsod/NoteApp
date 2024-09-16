@@ -1,4 +1,8 @@
+using Microsoft.VisualBasic.ApplicationServices;
 using NoteApp;
+using System.Diagnostics;
+using System.Reflection.Metadata;
+
 
 namespace NoteAppUI
 {
@@ -13,7 +17,7 @@ namespace NoteAppUI
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Application.Run(new MainForm());
         }
     }
 }
