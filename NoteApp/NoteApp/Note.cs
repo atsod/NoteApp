@@ -1,4 +1,6 @@
 ﻿
+using System.Text.Json.Serialization;
+
 namespace NoteApp
 {
     /// <summary>
@@ -7,10 +9,10 @@ namespace NoteApp
     /// </summary>
     public class Note : ICloneable
     {
+        private string _name;
         /// <summary>
         /// Поле, хранящее информацию о названии заметки.
         /// </summary>
-        private string _name;
         public string Name 
         { 
             get 
@@ -22,7 +24,7 @@ namespace NoteApp
                 if(value.Length <= 50)
                 {
                     _name = value;
-                    _lastChangeDate = DateTime.Now;
+                    _modifiedDate = DateTime.Now;
                 }
                 else
                 {
@@ -30,11 +32,11 @@ namespace NoteApp
                 }
             }
         }
-
+        
+        private NoteType _noteType;
         /// <summary>
         /// Поле, хранящее информацию о категории заметки.
         /// </summary>
-        private NoteType _noteType;
         public NoteType NoteType
         {
             get
@@ -44,14 +46,14 @@ namespace NoteApp
             set
             {
                 _noteType = value;
-                _lastChangeDate = DateTime.Now;
+                _modifiedDate = DateTime.Now;
             }
         }
-
+        
+        private string _description;
         /// <summary>
         /// Поле, хранящее информацию о тексте заметки.
         /// </summary>
-        private string _description;
         public string Description
         {
             get
@@ -61,14 +63,14 @@ namespace NoteApp
             set
             {
                 _description = value;
-                _lastChangeDate = DateTime.Now;
+                _modifiedDate = DateTime.Now;
             }
         }
-
+        
+        private DateTime _creationDate;
         /// <summary>
         /// Поле, хранящее информацию о дате создания заметки.
         /// </summary>
-        private DateTime _creationDate;
         public DateTime CreationDate
         {
             get
@@ -76,25 +78,33 @@ namespace NoteApp
                 return _creationDate;
             }
         }
-
+        
+        private DateTime _modifiedDate;
         /// <summary>
         /// Поле, хранящее информацию о последнем изменении заметки.
         /// </summary>
-        private DateTime _lastChangeDate;
-        public DateTime LastChangeDate
+        public DateTime ModifiedDate
         {
             get
             {
-                return _lastChangeDate;
+                return _modifiedDate;
             }
         }
 
-        public Note(NoteType noteType, string name = "Без названия", string description = "")
+        public Note(string name = "Без названия", string description = "")
         {
             Name = name;
-            NoteType = noteType;
             Description = description;
             _creationDate = DateTime.Now;
+        }
+
+        public void Copy(Note note)
+        {
+            _name = note.Name;
+            _noteType = note.NoteType;
+            _description = note.Description;
+            _creationDate = note.CreationDate;
+            _modifiedDate= note.ModifiedDate;
         }
 
         public object Clone()

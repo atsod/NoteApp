@@ -4,7 +4,7 @@
 namespace NoteApp
 {
     /// <summary>
-    /// Класс, отвечающий за сериализацию и десериализацию об]екта типа Project.
+    /// Класс, отвечающий за сериализацию и десериализацию объекта типа Project.
     /// </summary>
     public static class ProjectManager
     {
@@ -19,8 +19,8 @@ namespace NoteApp
         /// <summary>
         /// Метод, отвечающий за сериализацию объекта класса Project в файл по пути filename.
         /// </summary>
-        /// <param name="project"></param>
-        /// <param name="fileName"></param>
+        /// <param name="project">объект класса Project</param>
+        /// <param name="fileName">путь к файлу</param>
         public static void SaveToFile(Project project, string fileName)
         {
             JsonSerializer serializer = new JsonSerializer();
@@ -37,12 +37,19 @@ namespace NoteApp
         /// </summary>
         /// <param name="fileName">путь к файлу</param>
         /// <returns>Возвращает экземпляр класса ProjectЮ полученный из файла</returns>
-        public static Project LoadFromFile(string fileName) 
+        public static Project LoadFromFile(string fileName)
         {
             Project project = null;
             
-            JsonSerializer serializer = new JsonSerializer();
+            if (!File.Exists(fileName))
+            {
+                project = new Project();
+                SaveToFile(project, fileName);
+                return project;
+            }
             
+            JsonSerializer serializer = new JsonSerializer();
+
             using (StreamReader sr = new StreamReader(fileName))
             using (JsonReader reader = new JsonTextReader(sr))
             {
