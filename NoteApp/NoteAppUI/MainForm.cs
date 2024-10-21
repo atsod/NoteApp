@@ -1,7 +1,5 @@
 using NoteApp;
-using System;
-using System.Reflection;
-using System.Windows.Forms;
+
 
 namespace NoteAppUI
 {
@@ -38,7 +36,7 @@ namespace NoteAppUI
                 CategoryComboBox.Items.Add((NoteType)i);
             }*/
             CategoryComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-            
+
             CreatedDateTimePicker.Enabled = false;
             ModifiedDateTimePicker.Enabled = false;
             NoteDescriptionBox.ReadOnly = true;
@@ -105,9 +103,9 @@ namespace NoteAppUI
             if (index == -1)
             {
                 MessageBox.Show(
-                    "Please select a note to delete.", 
-                    "No Note Selected", 
-                    MessageBoxButtons.OK, 
+                    "Please select a note to delete.",
+                    "No Note Selected",
+                    MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
                 return;
@@ -116,9 +114,9 @@ namespace NoteAppUI
             DialogResult result = MessageBox.Show(
                 string.Format("Do you really want to remove this note: {0}", NotesListBox.Items[index]),
                 "Confirm Deletion",
-                MessageBoxButtons.OKCancel, 
+                MessageBoxButtons.OKCancel,
                 MessageBoxIcon.Question);
-            
+
             if (result == DialogResult.OK)
             {
                 _project.Notes.RemoveAt(index);
@@ -126,26 +124,6 @@ namespace NoteAppUI
 
                 ProjectManager.SaveToFile(_project, ProjectManager.FilePath);
             }
-        }
-
-        private void NoteName_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FileButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void EditButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void HelpButton_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void NotesListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -170,6 +148,32 @@ namespace NoteAppUI
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             ProjectManager.SaveToFile(_project, ProjectManager.FilePath);
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void addNoteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BottomAddButton_Click(sender, e);
+        }
+
+        private void editNoteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BottomEditButton_Click(sender, e);
+        }
+
+        private void removeNoteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BottomDeleteButton_Click(sender, e);
+        }
+
+        private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            AboutForm aboutForm = new AboutForm();
+            aboutForm.ShowDialog();
         }
     }
 }

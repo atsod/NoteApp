@@ -37,9 +37,6 @@ namespace NoteAppUI
             NoteName = new Label();
             NotesListBox = new ListBox();
             ShowCategoryLabel = new Label();
-            EditButton = new Button();
-            HelpButton = new Button();
-            FileButton = new Button();
             CategoryLabel = new Label();
             CreatedLabel = new Label();
             ModifiedLabel = new Label();
@@ -48,6 +45,16 @@ namespace NoteAppUI
             ModifiedDateTimePicker = new DateTimePicker();
             BottomEditButton = new Button();
             BottomDeleteButton = new Button();
+            menuStrip1 = new MenuStrip();
+            fileToolStripMenuItem = new ToolStripMenuItem();
+            exitToolStripMenuItem = new ToolStripMenuItem();
+            editToolStripMenuItem = new ToolStripMenuItem();
+            addNoteToolStripMenuItem = new ToolStripMenuItem();
+            editNoteToolStripMenuItem = new ToolStripMenuItem();
+            removeNoteToolStripMenuItem = new ToolStripMenuItem();
+            aboutToolStripMenuItem = new ToolStripMenuItem();
+            aboutToolStripMenuItem1 = new ToolStripMenuItem();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // BottomAddButton
@@ -86,7 +93,6 @@ namespace NoteAppUI
             NoteName.Size = new Size(118, 25);
             NoteName.TabIndex = 3;
             NoteName.Text = "Note Name";
-            NoteName.Click += NoteName_Click;
             // 
             // NotesListBox
             // 
@@ -105,48 +111,6 @@ namespace NoteAppUI
             ShowCategoryLabel.Size = new Size(112, 20);
             ShowCategoryLabel.TabIndex = 5;
             ShowCategoryLabel.Text = "Show Category:";
-            // 
-            // EditButton
-            // 
-            EditButton.BackColor = Color.Transparent;
-            EditButton.FlatAppearance.BorderSize = 0;
-            EditButton.FlatStyle = FlatStyle.Flat;
-            EditButton.Location = new Point(62, -4);
-            EditButton.Name = "EditButton";
-            EditButton.Size = new Size(56, 39);
-            EditButton.TabIndex = 7;
-            EditButton.TabStop = false;
-            EditButton.Text = "Edit";
-            EditButton.UseVisualStyleBackColor = false;
-            EditButton.Click += EditButton_Click;
-            // 
-            // HelpButton
-            // 
-            HelpButton.BackColor = Color.Transparent;
-            HelpButton.FlatAppearance.BorderSize = 0;
-            HelpButton.FlatStyle = FlatStyle.Flat;
-            HelpButton.Location = new Point(124, -4);
-            HelpButton.Name = "HelpButton";
-            HelpButton.Size = new Size(56, 39);
-            HelpButton.TabIndex = 8;
-            HelpButton.TabStop = false;
-            HelpButton.Text = "Help";
-            HelpButton.UseVisualStyleBackColor = false;
-            HelpButton.Click += HelpButton_Click;
-            // 
-            // FileButton
-            // 
-            FileButton.BackColor = Color.Transparent;
-            FileButton.FlatAppearance.BorderSize = 0;
-            FileButton.FlatStyle = FlatStyle.Flat;
-            FileButton.Location = new Point(0, -4);
-            FileButton.Name = "FileButton";
-            FileButton.Size = new Size(56, 39);
-            FileButton.TabIndex = 6;
-            FileButton.TabStop = false;
-            FileButton.Text = "File";
-            FileButton.UseVisualStyleBackColor = false;
-            FileButton.Click += FileButton_Click;
             // 
             // CategoryLabel
             // 
@@ -218,11 +182,78 @@ namespace NoteAppUI
             BottomDeleteButton.UseVisualStyleBackColor = true;
             BottomDeleteButton.Click += BottomDeleteButton_Click;
             // 
+            // menuStrip1
+            // 
+            menuStrip1.ImageScalingSize = new Size(20, 20);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, editToolStripMenuItem, aboutToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(800, 28);
+            menuStrip1.TabIndex = 17;
+            menuStrip1.Text = "MenuStrip";
+            // 
+            // fileToolStripMenuItem
+            // 
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { exitToolStripMenuItem });
+            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            fileToolStripMenuItem.Size = new Size(46, 24);
+            fileToolStripMenuItem.Text = "File";
+            // 
+            // exitToolStripMenuItem
+            // 
+            exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            exitToolStripMenuItem.Size = new Size(116, 26);
+            exitToolStripMenuItem.Text = "Exit";
+            exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
+            // 
+            // editToolStripMenuItem
+            // 
+            editToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { addNoteToolStripMenuItem, editNoteToolStripMenuItem, removeNoteToolStripMenuItem });
+            editToolStripMenuItem.Name = "editToolStripMenuItem";
+            editToolStripMenuItem.Size = new Size(49, 24);
+            editToolStripMenuItem.Text = "Edit";
+            // 
+            // addNoteToolStripMenuItem
+            // 
+            addNoteToolStripMenuItem.Name = "addNoteToolStripMenuItem";
+            addNoteToolStripMenuItem.Size = new Size(183, 26);
+            addNoteToolStripMenuItem.Text = "Add Note";
+            addNoteToolStripMenuItem.Click += addNoteToolStripMenuItem_Click;
+            // 
+            // editNoteToolStripMenuItem
+            // 
+            editNoteToolStripMenuItem.Name = "editNoteToolStripMenuItem";
+            editNoteToolStripMenuItem.Size = new Size(183, 26);
+            editNoteToolStripMenuItem.Text = "Edit Note";
+            editNoteToolStripMenuItem.Click += editNoteToolStripMenuItem_Click;
+            // 
+            // removeNoteToolStripMenuItem
+            // 
+            removeNoteToolStripMenuItem.Name = "removeNoteToolStripMenuItem";
+            removeNoteToolStripMenuItem.Size = new Size(183, 26);
+            removeNoteToolStripMenuItem.Text = "Remove Note";
+            removeNoteToolStripMenuItem.Click += removeNoteToolStripMenuItem_Click;
+            // 
+            // aboutToolStripMenuItem
+            // 
+            aboutToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { aboutToolStripMenuItem1 });
+            aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            aboutToolStripMenuItem.Size = new Size(64, 24);
+            aboutToolStripMenuItem.Text = "About";
+            // 
+            // aboutToolStripMenuItem1
+            // 
+            aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
+            aboutToolStripMenuItem1.Size = new Size(133, 26);
+            aboutToolStripMenuItem1.Text = "About";
+            aboutToolStripMenuItem1.Click += aboutToolStripMenuItem1_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(NoteDescriptionBox);
             Controls.Add(BottomDeleteButton);
             Controls.Add(BottomEditButton);
             Controls.Add(ModifiedDateTimePicker);
@@ -231,18 +262,18 @@ namespace NoteAppUI
             Controls.Add(ModifiedLabel);
             Controls.Add(CreatedLabel);
             Controls.Add(CategoryLabel);
-            Controls.Add(HelpButton);
-            Controls.Add(EditButton);
-            Controls.Add(FileButton);
             Controls.Add(ShowCategoryLabel);
             Controls.Add(NotesListBox);
             Controls.Add(NoteName);
             Controls.Add(CategoryComboBox);
-            Controls.Add(NoteDescriptionBox);
             Controls.Add(BottomAddButton);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
             Name = "MainForm";
             Text = "NoteApp";
             FormClosing += MainForm_FormClosing;
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -255,9 +286,6 @@ namespace NoteAppUI
         private Label NoteName;
         private ListBox NotesListBox;
         private Label ShowCategoryLabel;
-        private Button EditButton;
-        private Button HelpButton;
-        private Button FileButton;
         private Label CategoryLabel;
         private Label CreatedLabel;
         private Label ModifiedLabel;
@@ -266,5 +294,14 @@ namespace NoteAppUI
         private DateTimePicker ModifiedDateTimePicker;
         private Button BottomEditButton;
         private Button BottomDeleteButton;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem fileToolStripMenuItem;
+        private ToolStripMenuItem exitToolStripMenuItem;
+        private ToolStripMenuItem editToolStripMenuItem;
+        private ToolStripMenuItem aboutToolStripMenuItem;
+        private ToolStripMenuItem addNoteToolStripMenuItem;
+        private ToolStripMenuItem editNoteToolStripMenuItem;
+        private ToolStripMenuItem removeNoteToolStripMenuItem;
+        private ToolStripMenuItem aboutToolStripMenuItem1;
     }
 }
