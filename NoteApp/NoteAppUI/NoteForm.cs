@@ -25,15 +25,15 @@ namespace NoteAppUI
             {
                 return _note;
             }
-            set 
+            set
             {
-                _note = value; 
+                _note = value;
 
                 _temporaryNote = new Note();
                 _temporaryNote.Copy(_note);
 
                 TitleTextBox.Text = _note.Name;
-                if (!_isNewNote) CategoryComboBox.SelectedIndex = (int)_note.NoteType;
+                CategoryComboBox.SelectedIndex = (int)_note.NoteType;
                 CreatedDateTimePicker.Value = _note.CreationDate;
                 ModifiedDateTimePicker.Value = _note.ModifiedDate;
                 DescriptionTextBox.Text = _note.Description;
@@ -81,7 +81,20 @@ namespace NoteAppUI
 
         private void TitleTextBox_TextChanged(object sender, EventArgs e)
         {
-            _temporaryNote.Name = TitleTextBox.Text; // TODO подумать над обработкой максимальной длины названия заметки
+            string name = TitleTextBox.Text;
+            if(name.Length > 50)
+            {
+                TitleTextBox.BackColor = Color.Red;
+                Text = "Слишком длинное название!";
+                OkButton.Enabled = false;
+            }
+            else
+            {
+                TitleTextBox.BackColor = Color.White;
+                Text = "Add/Edit Note";
+                OkButton.Enabled = true;
+                _temporaryNote.Name = name;
+            }
         }
 
         private void CategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)

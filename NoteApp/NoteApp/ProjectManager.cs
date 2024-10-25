@@ -53,7 +53,7 @@ namespace NoteApp
             using (StreamReader sr = new StreamReader(fileName))
             using (JsonReader reader = new JsonTextReader(sr))
             {
-                project = (Project)serializer.Deserialize<Project>(reader);
+                project = (Project)serializer.Deserialize<Project>(reader); //здесь создается Note
             }
 
             return project;

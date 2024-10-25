@@ -46,20 +46,21 @@ namespace NoteAppUI
             BottomEditButton = new Button();
             BottomDeleteButton = new Button();
             menuStrip1 = new MenuStrip();
-            fileToolStripMenuItem = new ToolStripMenuItem();
-            exitToolStripMenuItem = new ToolStripMenuItem();
-            editToolStripMenuItem = new ToolStripMenuItem();
-            addNoteToolStripMenuItem = new ToolStripMenuItem();
-            editNoteToolStripMenuItem = new ToolStripMenuItem();
-            removeNoteToolStripMenuItem = new ToolStripMenuItem();
-            aboutToolStripMenuItem = new ToolStripMenuItem();
-            aboutToolStripMenuItem1 = new ToolStripMenuItem();
+            FileToolStripMenuItem = new ToolStripMenuItem();
+            ExitToolStripMenuItem = new ToolStripMenuItem();
+            EditToolStripMenuItem = new ToolStripMenuItem();
+            AddNoteToolStripMenuItem = new ToolStripMenuItem();
+            EditNoteToolStripMenuItem = new ToolStripMenuItem();
+            RemoveNoteToolStripMenuItem = new ToolStripMenuItem();
+            HelpToolStripMenuItem = new ToolStripMenuItem();
+            AboutToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // BottomAddButton
             // 
-            BottomAddButton.Location = new Point(12, 399);
+            BottomAddButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            BottomAddButton.Location = new Point(12, 352);
             BottomAddButton.Name = "BottomAddButton";
             BottomAddButton.Size = new Size(83, 39);
             BottomAddButton.TabIndex = 0;
@@ -69,11 +70,11 @@ namespace NoteAppUI
             // 
             // NoteDescriptionBox
             // 
-            NoteDescriptionBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            NoteDescriptionBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             NoteDescriptionBox.Location = new Point(318, 149);
             NoteDescriptionBox.Multiline = true;
             NoteDescriptionBox.Name = "NoteDescriptionBox";
-            NoteDescriptionBox.Size = new Size(471, 289);
+            NoteDescriptionBox.Size = new Size(483, 242);
             NoteDescriptionBox.TabIndex = 1;
             // 
             // CategoryComboBox
@@ -96,10 +97,11 @@ namespace NoteAppUI
             // 
             // NotesListBox
             // 
+            NotesListBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             NotesListBox.FormattingEnabled = true;
             NotesListBox.Location = new Point(12, 83);
             NotesListBox.Name = "NotesListBox";
-            NotesListBox.Size = new Size(282, 304);
+            NotesListBox.Size = new Size(282, 244);
             NotesListBox.TabIndex = 4;
             NotesListBox.SelectedIndexChanged += NotesListBox_SelectedIndexChanged;
             // 
@@ -152,19 +154,20 @@ namespace NoteAppUI
             // 
             CreatedDateTimePicker.Location = new Point(387, 110);
             CreatedDateTimePicker.Name = "CreatedDateTimePicker";
-            CreatedDateTimePicker.Size = new Size(165, 27);
+            CreatedDateTimePicker.Size = new Size(163, 27);
             CreatedDateTimePicker.TabIndex = 13;
             // 
             // ModifiedDateTimePicker
             // 
             ModifiedDateTimePicker.Location = new Point(637, 110);
             ModifiedDateTimePicker.Name = "ModifiedDateTimePicker";
-            ModifiedDateTimePicker.Size = new Size(152, 27);
+            ModifiedDateTimePicker.Size = new Size(163, 27);
             ModifiedDateTimePicker.TabIndex = 14;
             // 
             // BottomEditButton
             // 
-            BottomEditButton.Location = new Point(101, 399);
+            BottomEditButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            BottomEditButton.Location = new Point(101, 352);
             BottomEditButton.Name = "BottomEditButton";
             BottomEditButton.Size = new Size(83, 39);
             BottomEditButton.TabIndex = 15;
@@ -174,7 +177,8 @@ namespace NoteAppUI
             // 
             // BottomDeleteButton
             // 
-            BottomDeleteButton.Location = new Point(190, 399);
+            BottomDeleteButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            BottomDeleteButton.Location = new Point(190, 352);
             BottomDeleteButton.Name = "BottomDeleteButton";
             BottomDeleteButton.Size = new Size(83, 39);
             BottomDeleteButton.TabIndex = 16;
@@ -185,74 +189,74 @@ namespace NoteAppUI
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, editToolStripMenuItem, aboutToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { FileToolStripMenuItem, EditToolStripMenuItem, HelpToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 28);
+            menuStrip1.Size = new Size(812, 28);
             menuStrip1.TabIndex = 17;
             menuStrip1.Text = "MenuStrip";
             // 
-            // fileToolStripMenuItem
+            // FileToolStripMenuItem
             // 
-            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { exitToolStripMenuItem });
-            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            fileToolStripMenuItem.Size = new Size(46, 24);
-            fileToolStripMenuItem.Text = "File";
+            FileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { ExitToolStripMenuItem });
+            FileToolStripMenuItem.Name = "FileToolStripMenuItem";
+            FileToolStripMenuItem.Size = new Size(46, 24);
+            FileToolStripMenuItem.Text = "File";
             // 
-            // exitToolStripMenuItem
+            // ExitToolStripMenuItem
             // 
-            exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(116, 26);
-            exitToolStripMenuItem.Text = "Exit";
-            exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
+            ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
+            ExitToolStripMenuItem.Size = new Size(224, 26);
+            ExitToolStripMenuItem.Text = "Exit";
+            ExitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
-            // editToolStripMenuItem
+            // EditToolStripMenuItem
             // 
-            editToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { addNoteToolStripMenuItem, editNoteToolStripMenuItem, removeNoteToolStripMenuItem });
-            editToolStripMenuItem.Name = "editToolStripMenuItem";
-            editToolStripMenuItem.Size = new Size(49, 24);
-            editToolStripMenuItem.Text = "Edit";
+            EditToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { AddNoteToolStripMenuItem, EditNoteToolStripMenuItem, RemoveNoteToolStripMenuItem });
+            EditToolStripMenuItem.Name = "EditToolStripMenuItem";
+            EditToolStripMenuItem.Size = new Size(49, 24);
+            EditToolStripMenuItem.Text = "Edit";
             // 
-            // addNoteToolStripMenuItem
+            // AddNoteToolStripMenuItem
             // 
-            addNoteToolStripMenuItem.Name = "addNoteToolStripMenuItem";
-            addNoteToolStripMenuItem.Size = new Size(183, 26);
-            addNoteToolStripMenuItem.Text = "Add Note";
-            addNoteToolStripMenuItem.Click += addNoteToolStripMenuItem_Click;
+            AddNoteToolStripMenuItem.Name = "AddNoteToolStripMenuItem";
+            AddNoteToolStripMenuItem.Size = new Size(224, 26);
+            AddNoteToolStripMenuItem.Text = "Add Note";
+            AddNoteToolStripMenuItem.Click += addNoteToolStripMenuItem_Click;
             // 
-            // editNoteToolStripMenuItem
+            // EditNoteToolStripMenuItem
             // 
-            editNoteToolStripMenuItem.Name = "editNoteToolStripMenuItem";
-            editNoteToolStripMenuItem.Size = new Size(183, 26);
-            editNoteToolStripMenuItem.Text = "Edit Note";
-            editNoteToolStripMenuItem.Click += editNoteToolStripMenuItem_Click;
+            EditNoteToolStripMenuItem.Name = "EditNoteToolStripMenuItem";
+            EditNoteToolStripMenuItem.Size = new Size(224, 26);
+            EditNoteToolStripMenuItem.Text = "Edit Note";
+            EditNoteToolStripMenuItem.Click += editNoteToolStripMenuItem_Click;
             // 
-            // removeNoteToolStripMenuItem
+            // RemoveNoteToolStripMenuItem
             // 
-            removeNoteToolStripMenuItem.Name = "removeNoteToolStripMenuItem";
-            removeNoteToolStripMenuItem.Size = new Size(183, 26);
-            removeNoteToolStripMenuItem.Text = "Remove Note";
-            removeNoteToolStripMenuItem.Click += removeNoteToolStripMenuItem_Click;
+            RemoveNoteToolStripMenuItem.Name = "RemoveNoteToolStripMenuItem";
+            RemoveNoteToolStripMenuItem.Size = new Size(224, 26);
+            RemoveNoteToolStripMenuItem.Text = "Remove Note";
+            RemoveNoteToolStripMenuItem.Click += removeNoteToolStripMenuItem_Click;
             // 
-            // aboutToolStripMenuItem
+            // HelpToolStripMenuItem
             // 
-            aboutToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { aboutToolStripMenuItem1 });
-            aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            aboutToolStripMenuItem.Size = new Size(64, 24);
-            aboutToolStripMenuItem.Text = "About";
+            HelpToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { AboutToolStripMenuItem });
+            HelpToolStripMenuItem.Name = "HelpToolStripMenuItem";
+            HelpToolStripMenuItem.Size = new Size(55, 24);
+            HelpToolStripMenuItem.Text = "Help";
             // 
-            // aboutToolStripMenuItem1
+            // AboutToolStripMenuItem
             // 
-            aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-            aboutToolStripMenuItem1.Size = new Size(133, 26);
-            aboutToolStripMenuItem1.Text = "About";
-            aboutToolStripMenuItem1.Click += aboutToolStripMenuItem1_Click;
+            AboutToolStripMenuItem.Name = "AboutToolStripMenuItem";
+            AboutToolStripMenuItem.Size = new Size(224, 26);
+            AboutToolStripMenuItem.Text = "About";
+            AboutToolStripMenuItem.Click += aboutToolStripMenuItem1_Click;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(812, 403);
             Controls.Add(NoteDescriptionBox);
             Controls.Add(BottomDeleteButton);
             Controls.Add(BottomEditButton);
@@ -269,6 +273,7 @@ namespace NoteAppUI
             Controls.Add(BottomAddButton);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
+            MinimumSize = new Size(830, 450);
             Name = "MainForm";
             Text = "NoteApp";
             FormClosing += MainForm_FormClosing;
@@ -295,13 +300,13 @@ namespace NoteAppUI
         private Button BottomEditButton;
         private Button BottomDeleteButton;
         private MenuStrip menuStrip1;
-        private ToolStripMenuItem fileToolStripMenuItem;
-        private ToolStripMenuItem exitToolStripMenuItem;
-        private ToolStripMenuItem editToolStripMenuItem;
-        private ToolStripMenuItem aboutToolStripMenuItem;
-        private ToolStripMenuItem addNoteToolStripMenuItem;
-        private ToolStripMenuItem editNoteToolStripMenuItem;
-        private ToolStripMenuItem removeNoteToolStripMenuItem;
-        private ToolStripMenuItem aboutToolStripMenuItem1;
+        private ToolStripMenuItem FileToolStripMenuItem;
+        private ToolStripMenuItem ExitToolStripMenuItem;
+        private ToolStripMenuItem EditToolStripMenuItem;
+        private ToolStripMenuItem HelpToolStripMenuItem;
+        private ToolStripMenuItem AddNoteToolStripMenuItem;
+        private ToolStripMenuItem EditNoteToolStripMenuItem;
+        private ToolStripMenuItem RemoveNoteToolStripMenuItem;
+        private ToolStripMenuItem AboutToolStripMenuItem;
     }
 }

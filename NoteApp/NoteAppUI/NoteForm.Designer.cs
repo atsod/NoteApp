@@ -52,9 +52,10 @@
             // 
             // TitleTextBox
             // 
+            TitleTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TitleTextBox.Location = new Point(90, 6);
             TitleTextBox.Name = "TitleTextBox";
-            TitleTextBox.Size = new Size(698, 27);
+            TitleTextBox.Size = new Size(710, 27);
             TitleTextBox.TabIndex = 1;
             TitleTextBox.TextChanged += TitleTextBox_TextChanged;
             // 
@@ -101,16 +102,18 @@
             // 
             // DescriptionTextBox
             // 
+            DescriptionTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             DescriptionTextBox.Location = new Point(13, 128);
             DescriptionTextBox.Multiline = true;
             DescriptionTextBox.Name = "DescriptionTextBox";
-            DescriptionTextBox.Size = new Size(776, 275);
+            DescriptionTextBox.Size = new Size(788, 228);
             DescriptionTextBox.TabIndex = 8;
             DescriptionTextBox.TextChanged += DescriptionTextBox_TextChanged;
             // 
             // OkButton
             // 
-            OkButton.Location = new Point(594, 409);
+            OkButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            OkButton.Location = new Point(606, 362);
             OkButton.Name = "OkButton";
             OkButton.Size = new Size(94, 29);
             OkButton.TabIndex = 9;
@@ -120,7 +123,8 @@
             // 
             // CancelButton
             // 
-            CancelButton.Location = new Point(694, 409);
+            CancelButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            CancelButton.Location = new Point(706, 362);
             CancelButton.Name = "CancelButton";
             CancelButton.Size = new Size(94, 29);
             CancelButton.TabIndex = 10;
@@ -141,7 +145,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(812, 403);
             Controls.Add(CategoryComboBox);
             Controls.Add(CancelButton);
             Controls.Add(OkButton);
@@ -153,6 +157,7 @@
             Controls.Add(CategoryLabel);
             Controls.Add(TitleTextBox);
             Controls.Add(TitleLabel);
+            MinimumSize = new Size(830, 450);
             Name = "NoteForm";
             Text = "Add/Edit Note";
             ResumeLayout(false);

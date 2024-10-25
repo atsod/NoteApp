@@ -1,5 +1,4 @@
 ﻿
-using System.Text.Json.Serialization;
 
 namespace NoteApp
 {
@@ -15,21 +14,11 @@ namespace NoteApp
         /// </summary>
         public string Name 
         { 
-            get 
-            { 
-                return _name; 
-            }
+            get => _name; 
             set
             {
-                if(value.Length <= 50)
-                {
-                    _name = value;
-                    _modifiedDate = DateTime.Now;
-                }
-                else
-                {
-                    throw new ArgumentException("Слишком длинное название!");
-                }
+                _name = value;
+                _modifiedDate = DateTime.Now;
             }
         }
         
@@ -39,10 +28,7 @@ namespace NoteApp
         /// </summary>
         public NoteType NoteType
         {
-            get
-            {
-                return _noteType;
-            }
+            get => _noteType;
             set
             {
                 _noteType = value;
@@ -56,10 +42,7 @@ namespace NoteApp
         /// </summary>
         public string Description
         {
-            get
-            {
-                return _description;
-            }
+            get => _description;
             set
             {
                 _description = value;
@@ -73,10 +56,8 @@ namespace NoteApp
         /// </summary>
         public DateTime CreationDate
         {
-            get
-            {
-                return _creationDate;
-            }
+            get => _creationDate;
+            private set => _creationDate = value;
         }
         
         private DateTime _modifiedDate;
@@ -85,10 +66,8 @@ namespace NoteApp
         /// </summary>
         public DateTime ModifiedDate
         {
-            get
-            {
-                return _modifiedDate;
-            }
+            get => _modifiedDate;
+            private set => _modifiedDate = value;
         }
 
         public Note(string name = "Без названия", string description = "")
@@ -96,6 +75,17 @@ namespace NoteApp
             Name = name;
             Description = description;
             _creationDate = DateTime.Now;
+        }
+        
+        [Newtonsoft.Json.JsonConstructor]
+        public Note(string name, string description, NoteType noteType, 
+            DateTime creationDate, DateTime modifiedDate)
+        {
+            Name = name;
+            Description = description;
+            NoteType = noteType;
+            CreationDate = creationDate;
+            ModifiedDate = modifiedDate;
         }
 
         public void Copy(Note note)

@@ -30,11 +30,12 @@ namespace NoteAppUI
             {
                 ShowDefaultNote();
             }
-            /*
+
+            // Заглушка для фильтра категорий заметок
             for (int i = 0; i < Enum.GetNames(typeof(NoteType)).Length; i++)
             {
                 CategoryComboBox.Items.Add((NoteType)i);
-            }*/
+            }
             CategoryComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
             CreatedDateTimePicker.Enabled = false;
@@ -92,8 +93,6 @@ namespace NoteAppUI
         {
             _project.Notes[NotesListBox.SelectedIndex] = note;
             NotesListBox.Items[NotesListBox.SelectedIndex] = note.Name;
-
-            ProjectManager.SaveToFile(_project, ProjectManager.FilePath);
         }
 
         private void BottomDeleteButton_Click(object sender, EventArgs e)
@@ -145,11 +144,6 @@ namespace NoteAppUI
             NoteDescriptionBox.Text = note.Description;
         }
 
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            ProjectManager.SaveToFile(_project, ProjectManager.FilePath);
-        }
-
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
@@ -174,6 +168,11 @@ namespace NoteAppUI
         {
             AboutForm aboutForm = new AboutForm();
             aboutForm.ShowDialog();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ProjectManager.SaveToFile(_project, ProjectManager.FilePath);
         }
     }
 }
